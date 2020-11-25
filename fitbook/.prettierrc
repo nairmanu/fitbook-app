@@ -1,0 +1,56 @@
+# Docs: https://prettier.io/docs/en/options.html
+
+# Specify the number of spaces per indentation-level.
+tabWidth: 2
+
+# true  - indent lines with tabs.
+# false - indent lines with spaces.
+useTabs: false
+
+# "none" - No trailing commas.
+# "es5"  - Trailing commas where valid in ES5 (objects, arrays, etc.)
+# "all"  - Trailing commas wherever possible (including function arguments). Requires node 8
+#          or a transform.
+trailingComma: "es5"
+
+# true - Add a semicolon at the end of every statement.
+# false - Only add semicolons at the beginning of lines that may introduce ASI failures.
+semi: true
+
+# JSX quotes ignore this option – see jsx-single-quote.
+# If the number of quotes outweighs the other quote, the quote which is less used will
+# be used to format the string
+# Example: "I'm double quoted" results in "I'm double quoted" and
+#          "This \"example\" is single quoted" results in 'This "example" is single quoted'.
+singleQuote: false
+
+# true - Use single quotes instead of double quotes in JSX.
+jsxSingleQuote: false
+
+# Specify the line length that the printer will wrap on.
+printWidth: 120
+
+# "as-needed"  - Only add quotes around object properties where required.
+# "consistent" - If at least one property in an object requires quotes, quote all properties.
+# "preserve"   - Respect the input use of quotes in object properties.
+quoteProps: "consistent"
+
+# true  - Example: { foo: bar }.
+# false - Example: {foo: bar}.
+bracketSpacing: true
+
+# Put the > of a multi-line JSX element at the end of the last line instead
+# of being alone on the next line (does not apply to self closing elements).
+jsxBracketSameLine: true
+
+# Include parentheses around a sole arrow function parameter.
+# "avoid"  - Omit parens when possible. Example: x => x
+# "always" - Always include parens. Example: (x) => x
+arrowParens: "avoid"
+
+# "auto" - Maintain existing line endings (mixed values within one file are normalised by
+#          looking at what's used after the first line)
+# "lf"   – Line Feed only (\n), common on Linux and macOS as well as inside git repos
+# "crlf" - Carriage Return + Line Feed characters (\r\n), common on Windows
+# "cr"   - Carriage Return character only (\r), used very rarely
+endOfLine: "lf"
