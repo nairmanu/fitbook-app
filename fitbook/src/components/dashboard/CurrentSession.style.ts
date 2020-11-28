@@ -1,19 +1,31 @@
 import { StyleSheet } from "react-native";
+import { Style } from "../../styles/style";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 0,
-    flexDirection: "column",
-    width: "100%",
-  },
-  card: {
-    flex: 1,
-    flexDirection: "column",
-  },
-  cardItem: {
-    flex: 1,
-    flexDirection: "row",
-  },
-});
-
-export default styles;
+export const currentSessionStyles = () =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      paddingHorizontal: 10,
+    },
+    card: {
+      borderRadius: 18,
+      backgroundColor: Style.themed("cardBackground"),
+    },
+    cardHeader: {
+      borderTopEndRadius: 18,
+      borderTopStartRadius: 18,
+      fontSize: 18,
+      color: Style.themed("headerText"),
+      backgroundColor: Style.themed("primaryHeader"),
+    },
+    cardLineItem: {
+      borderRadius: 18,
+      backgroundColor: Style.themed("cardBackground"),
+    },
+    cardText: {
+      width: "100%",
+      color: Style.themed("primaryText"),
+    },
+  });

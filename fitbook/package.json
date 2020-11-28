@@ -13,6 +13,7 @@
     "prettify": "prettier --write \"*.{json,ts}\" \"src/**/*.{json,ts,tsx}\""
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.2",
     "@react-navigation/native": "^5.8.10",
@@ -25,6 +26,7 @@
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.15.0",
     "react-navigation": "^4.4.3",
+    "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
@@ -34,6 +36,7 @@
     "@react-native-community/eslint-config": "^1.1.0",
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.2",
+    "@types/react-redux": "^7.1.11",
     "@types/react-test-renderer": "^16.9.2",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/eslint-plugin-tslint": "^4.8.2",

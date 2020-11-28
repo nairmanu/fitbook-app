@@ -1,25 +1,36 @@
 import React from "react";
-import { Text } from "react-native";
-import { Card, CardItem } from "native-base";
+import { View, Card, CardItem, Text } from "native-base";
 
-import styles from "./CurrentSession.style";
+import { currentSessionStyles } from "./CurrentSession.style";
 
-const CurrentSession: React.FC = () => {
+interface CurrentSessionProps {
+  isDarkMode: boolean;
+}
+
+const CurrentSession: React.FC<CurrentSessionProps> = ({ isDarkMode }) => {
+  const [styles, setStyles] = React.useState(currentSessionStyles());
+
+  React.useEffect(() => {
+    setStyles(currentSessionStyles());
+  }, [isDarkMode, setStyles]);
+
   return (
-    <Card>
-      <CardItem header>
-        <Text>NativeBase</Text>
-      </CardItem>
-      <CardItem>
-        <Text>Bench press</Text>
-      </CardItem>
-      <CardItem>
-        <Text>Incline press</Text>
-      </CardItem>
-      <CardItem>
-        <Text>Plank</Text>
-      </CardItem>
-    </Card>
+    <View style={styles.container}>
+      <Card style={styles.card}>
+        <CardItem header bordered style={styles.cardHeader}>
+          <Text style={styles.cardHeader}>Current session</Text>
+        </CardItem>
+        <CardItem bordered style={styles.cardLineItem}>
+          <Text style={styles.cardText}>Bench press</Text>
+        </CardItem>
+        <CardItem bordered style={styles.cardLineItem}>
+          <Text style={styles.cardText}>Incline press</Text>
+        </CardItem>
+        <CardItem bordered style={styles.cardLineItem}>
+          <Text style={styles.cardText}>Plank</Text>
+        </CardItem>
+      </Card>
+    </View>
   );
 };
 
