@@ -26,6 +26,17 @@ export const addEntryStyles = () =>
       paddingHorizontal: 10,
       marginTop: 25,
     },
+    item: {
+      marginVertical: 8,
+      display: "flex",
+      flexGrow: 1,
+    },
+    dropdownUnits: {
+      width: "78%",
+    },
+    dropdownType: {
+      width: "82%",
+    },
     input: {
       color: Style.themed("primaryText"),
     },
@@ -34,5 +45,7 @@ export const addEntryStyles = () =>
     },
     closeButton: {
       alignSelf: "flex-end",
+      color: Style.themed("exitButton"),
+      fontSize: 30,
     },
   });

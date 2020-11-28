@@ -8,26 +8,32 @@ export const fabSelectorStyles = () =>
       flexDirection: "column",
     },
     mainButton: {
+      borderRadius: 50,
+      width: 58,
+      height: 57,
+      padding: 1,
       backgroundColor: Style.themed("primaryButtonBackground"),
     },
     mainButtonIcon: {
-      fontSize: 70,
-      lineHeight: 63,
+      fontSize: 65,
+      lineHeight: 64,
       color: Style.themed("addEntryIcon"),
     },
     mainButtonActive: {
       transform: [{ rotate: "45deg" }],
     },
     createResistanceButton: {
-      backgroundColor: Style.themed("addResistanceIcon"),
+      backgroundColor: "transparent",
     },
     createWorkoutButton: {
-      backgroundColor: Style.themed("addWorkoutIcon"),
+      backgroundColor: "transparent",
     },
     createResistanceIcon: {
-      fontSize: 20,
+      fontSize: 30,
+      color: Style.themed("addResistanceIcon"),
     },
     createWorkoutIcon: {
-      fontSize: 20,
+      fontSize: 30,
+      color: Style.themed("addWorkoutIcon"),
     },
   });

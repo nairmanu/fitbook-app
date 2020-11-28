@@ -22,7 +22,7 @@ const ResistanceList: React.FC<ResistanceListProps> = ({ isDarkMode, resistances
         {resistances.map((resistance, index) =>
           <ListItem key={index} >
             <Text style={styles.type}>{resistance.type}</Text>
-            <Text>{resistance.subType}</Text>
+            <Text>{resistance.reps}</Text>
           </ListItem>
         )}
       </List>

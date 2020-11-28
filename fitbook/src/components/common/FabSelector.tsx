@@ -5,7 +5,7 @@ import { fabSelectorStyles } from "./FabSelector.style";
 
 interface FabSelectorProps {
   isDarkMode: boolean;
-  showCreateResistance: (value: boolean) => void;
+  showCreateResistance: () => void;
   showCreateWorkout: (value: boolean) => void;
 }
 
@@ -32,9 +32,9 @@ const FabSelector: React.FC<FabSelectorProps> = ({ isDarkMode, showCreateResista
         style={styles.mainButton}
         onPress={() => setActive(!active)}
       >
-        <Icon name="md-add-circle" style={mainButtonIconStyle} />
+        <Icon name="md-add-outline" style={mainButtonIconStyle} />
         <Button style={styles.createResistanceButton} onPress={() => {
-          showCreateResistance(true);
+          showCreateResistance();
           setActive(!active);
         }}>
           <Icon name="md-disc-sharp" style={styles.createResistanceIcon} />

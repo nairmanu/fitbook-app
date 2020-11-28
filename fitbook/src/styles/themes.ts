@@ -19,6 +19,7 @@ const Themes = {
     ["addResistanceIcon", Colors.THEME_BLUE],
     ["addWorkoutIcon", Colors.THEME_BLUE],
     ["modalBackground", Colors.BLACK_TRUE],
+    ["exitButton", Colors.RED],
   ]),
   dark: new Map<string, Colors>([
     ["labelText", Colors.GRAY],
@@ -38,6 +39,7 @@ const Themes = {
     ["addResistanceIcon", Colors.THEME_BLUE],
     ["addWorkoutIcon", Colors.THEME_BLUE],
     ["modalBackground", Colors.BLACK_TRUE],
+    ["exitButton", Colors.RED],
   ]),
 };
 

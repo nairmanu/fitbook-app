@@ -12,50 +12,61 @@ import { ResistanceModel } from '../../domainlogic/models/ResistanceModel';
 import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../redux/index";
 import { profileSelectors } from "../../redux/profiles";
-import { resistanceActions, ThunkActionDispatch as ResistanceThunkActionDispatch } from "../../redux/resistance";
+import { ThunkActionDispatch as ResistanceThunkActionDispatch, createResistance, getResistanceTypeList, resistanceSelectors } from "../../redux/resistance";
 
 
 interface DashboardReduxState {
   isDarkMode: boolean;
+  resistanceTypes: string[];
 }
 
 const Dashboard: React.FC = () => {
   const dispatch = useDispatch<ResistanceThunkActionDispatch>();
   const dashboardReduxState = useSelector<AppState, DashboardReduxState>(state => {
     const isDarkMode = profileSelectors.checkIsDarkMode(state);
+    const resistanceTypes = resistanceSelectors.getResistanceTypes(state);
 
-    return { isDarkMode };
+    return { isDarkMode, resistanceTypes };
   });
-  const { isDarkMode } = dashboardReduxState;
+  const { isDarkMode, resistanceTypes } = dashboardReduxState;
 
   const [styles, setStyles] = React.useState(dashboardStyles());
   const [showCreateResistanceModal, setShowCreateResistanceModal] = React.useState<boolean>(false);
   const [showCreateWorkoutModal, setShowCreateWorkoutModal] = React.useState<boolean>(false);
 
   const addResistance = (data: ResistanceModel) => {
-    dispatch(resistanceActions.addResistance(data));
+    dispatch(createResistance(data));
   };
 
   React.useEffect(() => {
     setStyles(dashboardStyles());
   }, [isDarkMode, setStyles]);
 
+  const showCreateResistance = () => {
+    dispatch(getResistanceTypeList());
+    setShowCreateResistanceModal(true);
+  };
+
   return (
-    <Container style={styles.container}>
-      <Header isDarkMode={isDarkMode} />
-      <Content>
-        <CurrentSession isDarkMode={isDarkMode} />
-      </Content>
+    <>
       {showCreateResistanceModal &&
         <AddEntry
           isDarkMode={isDarkMode}
           onClose={() => setShowCreateResistanceModal(false)}
-          addResistance={addResistance} />}
-      <FabSelector
-        isDarkMode={isDarkMode}
-        showCreateResistance={setShowCreateResistanceModal}
-        showCreateWorkout={setShowCreateWorkoutModal} />
-    </Container>
+          addResistance={addResistance}
+          resistanceTypes={resistanceTypes}
+        />}
+      <Container style={styles.container}>
+        <Header isDarkMode={isDarkMode} />
+        <Content>
+          <CurrentSession isDarkMode={isDarkMode} />
+        </Content>
+        <FabSelector
+          isDarkMode={isDarkMode}
+          showCreateResistance={showCreateResistance}
+          showCreateWorkout={setShowCreateWorkoutModal} />
+      </Container>
+    </>
   );
 };
 
