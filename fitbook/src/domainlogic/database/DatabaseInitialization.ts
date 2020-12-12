@@ -65,6 +65,7 @@ export default class DatabaseInitialization {
       transaction.executeSql("DROP TABLE IF EXISTS WorkoutTypes;");
       transaction.executeSql("DROP TABLE IF EXISTS WorkoutSubTypes;");
       transaction.executeSql("DROP TABLE IF EXISTS Workouts;");
+      transaction.executeSql("DROP TABLE IF EXISTS Version");
     }
 
     // Profile table
@@ -97,6 +98,7 @@ export default class DatabaseInitialization {
         unit TEXT,
         time TEXT,
         notes TEXT,
+        created_date DATETIME,
         FOREIGN KEY ( type ) REFERENCES ResistanceTypes ( type ),
         FOREIGN KEY ( user_id ) REFERENCES Profiles ( user_id )
       );
@@ -132,6 +134,7 @@ export default class DatabaseInitialization {
         unit TEXT,
         time TEXT,
         notes TEXT,
+        created_date DATETIME,
         FOREIGN KEY ( type ) REFERENCES WorkoutSubTypes ( type ),
         FOREIGN KEY ( sub_type ) REFERENCES WorkoutSubTypes ( sub_type ),
         FOREIGN KEY ( user_id ) REFERENCES Profiles ( user_id )

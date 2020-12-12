@@ -2,14 +2,14 @@ import React from "react";
 import { View, Textarea, Form, Button, Icon, Input, Item, Text, Picker } from "native-base";
 
 import { addEntryStyles } from "./AddEntry.style";
-import Resistance, { ResistanceModel, ResistanceFormModel } from '../../domainlogic/models/ResistanceModel';
+import { ResistanceFormModel } from '../../domainlogic/models/ResistanceModel';
 import { UnitsModel } from '../../domainlogic/models/UnitsModel';
 
 interface AddEntryProps {
   isDarkMode: boolean;
   resistanceTypes: string[];
   onClose: () => void;
-  addResistance: (data: ResistanceModel) => void;
+  addResistance: (data: ResistanceFormModel) => void;
 }
 
 const AddEntry: React.FC<AddEntryProps> = ({ isDarkMode, resistanceTypes, onClose, addResistance }) => {
@@ -29,8 +29,7 @@ const AddEntry: React.FC<AddEntryProps> = ({ isDarkMode, resistanceTypes, onClos
   };
 
   const onAddClick = () => {
-    const data: ResistanceModel = Resistance.fromFormModel(resistance);
-    addResistance(data);
+    addResistance(resistance);
     onClose();
   };
 

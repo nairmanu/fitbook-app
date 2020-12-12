@@ -5,11 +5,12 @@ import { Action, ActionsUnion, RootState } from "./actionHelpers";
 import { AppState } from ".";
 import { statusActions } from "./status";
 import ResistanceService, { resistanceSvc } from "../domainlogic/services/Resistance";
-import { ResistanceModel } from "../domainlogic/models/ResistanceModel";
+import { ResistanceFormModel, ResistanceModel } from "../domainlogic/models/ResistanceModel";
 
 interface ResistanceState {
   types: string[];
   resistances: ResistanceModel[];
+  selectedType?: string;
 }
 
 export const getInitialResistanceState = (): ResistanceState => {
@@ -47,7 +48,7 @@ export type Actions = ActionsUnion<typeof resistanceActions>;
 export type ThunkActionCreator = ActionCreator<ThunkAction<void, AppState, ResistanceService, Actions>>;
 export type ThunkActionDispatch = ThunkDispatch<AppState, ResistanceService, AnyAction>;
 
-export const createResistance: ThunkActionCreator = (data: ResistanceModel) => async (
+export const createResistance: ThunkActionCreator = (data: ResistanceFormModel) => async (
   dispatch: Dispatch & ThunkActionDispatch,
   getState: () => AppState
 ) => {

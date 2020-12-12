@@ -22,7 +22,8 @@ const ResistanceList: React.FC<ResistanceListProps> = ({ isDarkMode, resistances
         {resistances.map((resistance, index) =>
           <ListItem key={index} >
             <Text style={styles.type}>{resistance.type}</Text>
-            <Text>{resistance.reps}</Text>
+            <Text style={styles.type}>{resistance.reps}</Text>
+            <Text>{resistance.createdDate}</Text>
           </ListItem>
         )}
       </List>
