@@ -32,10 +32,10 @@ export const addEntryStyles = () =>
       flexGrow: 1,
     },
     dropdownUnits: {
-      width: "78%",
+      width: "80%",
     },
     dropdownType: {
-      width: "82%",
+      width: "85%",
     },
     input: {
       color: Style.themed("primaryText"),
@@ -47,5 +47,6 @@ export const addEntryStyles = () =>
       alignSelf: "flex-end",
       color: Style.themed("exitButton"),
       fontSize: 30,
+      marginRight: 0,
     },
   });

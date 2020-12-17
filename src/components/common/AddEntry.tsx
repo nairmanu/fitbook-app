@@ -47,7 +47,6 @@ const AddEntry: React.FC<AddEntryProps> = ({ isDarkMode, resistanceTypes, onClos
         <Form>
           <Item rounded picker style={styles.item}>
             <Picker
-
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
               placeholder="Select type"
